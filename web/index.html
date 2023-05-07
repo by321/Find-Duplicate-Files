@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potential Duplicate Files</title>
+
+    <link rel="stylesheet" href="./main.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+
+<div class="top-align">
+    Files with same size and MD5 signature are grouped together.<br>
+    Click on Open button to open file in system's default application for its file type.<br>
+    Click on filename to select/deselect file.<br>
+    And you can: <button type="Button" id="clear-selection-btn">Clear Selection</button>
+    <button type="Button" id="delete-selection-btn">Delete Selected Files</button>&nbsp<span id="nSelected"></span>
+    <hr>
+</div>
+
+<!-- elements for files are inserted after </legend>, for example:
+
+    <fieldset>
+        <legend>Group 1, file length=123, MD5=a1b2c3d4e5...</legend>
+
+        <button type="button" class="open-file-btn">Open</button>
+        <label><input type="checkbox" value="yes">  Acc4ept</label><br>
+
+        <button type="button" class="open-file-btn">Open</button>
+        <label><input type="checkbox" value="yes">  Acc4ept</label><br>
+
+        <button type="button" class="open-file-btn">Open</button>
+        <label><input type="checkbox" value="yes">  Acc4ept</label><br>
+
+    </fieldset>
+-->
+<template id="group_template">
+    <fieldset><legend></legend></fieldset>
+</template>
+<template id="file_template">
+    <button type="button" class="open-file-btn">Open</button>
+    <label><input class="select-file-checkbox" type="checkbox" value="1"><span>filename</span></label><br>
+</template>
+
+<div class="main-div" id="main-div">
+</div>
+
+</body>
+<script src="./main.js"></script>
+</html>
