@@ -15,7 +15,7 @@ def OpenFileWithDefaultApp(fn:str):
         subprocess.call(['open', fn])
 
 @eel.expose
-def DeleteSelectedFiles(fns):
+def DeleteSelectedFiles(fns:list[str]):
     for fn in fns:
         print(f"deleting {fn} ...");
         os.remove(fn);
@@ -25,7 +25,7 @@ def DeleteSelectedFiles(fns):
 Folders_to_scan=[r"c:\DCIM\photos1",r"c:\DCIM\photos2"]
 
 cfg=FindDuplicateFiles.FDFConfig()
-cfg.hashFile=False
+#cfg.hashFile=False #set this to False to skip MD5 hashing
 results=FindDuplicateFiles.FindDuplicateFiles(Folders_to_scan, cfg)
 
 for group in results: #print out the results

@@ -102,7 +102,7 @@ def GroupItemsByDuplicatedFirstValues(inputList):
     return output,nFiles
 
 
-def FindDuplicateFiles(scan_dirs, cfg=None):
+def FindDuplicateFiles(scan_dirs, cfg=None) -> list[FileGroup] :
     if cfg is None:
         cfg=FDFConfig()
     else:
@@ -112,7 +112,7 @@ def FindDuplicateFiles(scan_dirs, cfg=None):
     lnlen=len(len_name)
     if lnlen<2: return []
 
-    results=[]
+    results:list[FileGroup]=[]
 
     len_groups,nLenFiles=GroupItemsByDuplicatedFirstValues(len_name) #first value is file length here
     print(f"potential duplicate files due to same file length: {nLenFiles}")
